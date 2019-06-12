@@ -1,11 +1,9 @@
 #include "Methods.h"
 
-void main() {
+void main(int argc, char **argv) {
 	int rows = getIntegerValue();
 	int power = getIntegerValue();
-	int** matrix = createMatrixRandom(rows);
-	writeMatrix(matrix, rows);
-	int** finalMatrix = initializeArrayOfSpecificSize(rows);
-	finalMatrix = multiplyMatrixes(matrix, power, rows);
-	writeMatrix(finalMatrix, rows);
+	createMatrixRandom(rows);
+	int** matrix = readMatrixFromFile(rows);
+	writeToFile(OUTPUT_DATA_FILENAME,multiplyMatrixes(matrix, power, rows), rows);
 }
